@@ -1,5 +1,24 @@
+.quiz {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.livePreview,
+.inputSide {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+}
+
 .question {
   font-size: 24px;
-  font-family: monospace;
-  margin: 20px;
+  font-family: "Roboto", sans-serif;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.ans {
+  font-size: 24px;
+  font-family: "Nunito Sans", sans-serif;
+  margin-right: 20px;
 }

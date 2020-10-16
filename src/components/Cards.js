@@ -1,20 +1,19 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { makeStyles, unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 
 import NewAnswer from "./NewAnswer";
-
+import NewQuestion from "./NewQuestion";
 import "./cards.css";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 170,
+    minWidth: 160,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -24,67 +23,89 @@ const useStyles = makeStyles((theme) => ({
 
 function Cards(){
   const classes = useStyles();
+
   const [option, setOption] = React.useState('');
 
-  
 
-  const [answers,setAnswer] = useState(
-    [{title:"Bahama"},
-     {title:"God Knows"}
-  ])
+  const [questions,setQuestion] = useState([]);
+
+  const addQuestion = (ques)=>{
+    setQuestion([...questions,{ques}])
+  }
+
+
+  const [answers,setAnswer] = useState([])
 
   const addAnswer = (title) => {
     setAnswer([...answers,{title}])
   } 
 
+
   const handleChange = (event) => {
     setOption(event.target.value);
   };
 
+  const nextQuestion = (ques,title)=> {
+    setQuestion([...questions],{ques});
+    setAnswer([...answers],{title});
+  }
+
+  
+
+ 
+
 
     return(
-        <div>
-            <section className="card">
+        <div className="quiz">
+            <section className="inputSide">
               <div>
-                <form>
-                  <label className="question" required>Question</label>
-                  <input type="text"></input>
-                </form>
-                <div>
-                  <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label" className="dropText">Type of Question</InputLabel>
-                      <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={option}
-                          onChange={handleChange}
-                      >
-                      <MenuItem value={"radio"}>MCQ</MenuItem>
-                      <MenuItem value={"text"}>Single Line</MenuItem>
-                      <MenuItem value={"checkbox"}>Checkbox</MenuItem>
-                    </Select>
-                  </FormControl>
-                </div>
+                  <NewQuestion addQuestion={addQuestion}/>
+                  <div className="dropDown">
+                    <FormControl className={classes.formControl}>
+                      <InputLabel id="demo-simple-select-label" className="dropText">Type of Question</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={option}
+                            onChange={handleChange}
+                        >
+                        <MenuItem value={"radio"}>MCQ</MenuItem>
+                        <MenuItem value={"text"}>Single Line</MenuItem>
+                        <MenuItem value={"checkbox"}>Checkbox</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+              
+                  <NewAnswer addAnswer={addAnswer} option={option}/>
 
-                <div>
-                  <NewAnswer addAnswer = {addAnswer}/>
-                  <ul>
-                    {answers.map(ans=>{
-                          return (
-                              <form>
-                                <div>
-                                  <input type={option} for="answer"/>
-                                  <label className="Answer" id="answer">{ans.title}</label>
-                                </div>
-                              </form>
-                          ) 
-                        })}
-                  </ul>
+                  <button onClick={nextQuestion}>New question</button>
+
                 </div>
-              </div>
+            </section>
               
             
-            </section>
+            <section className="livePreview">
+                <div>
+                  {questions.map(qus=>{
+                    return(
+                      <p>{qus.ques}</p>
+                    )
+                  })}
+                </div>
+                <ul>
+                  {answers.map(ans=>{
+                        return (
+                            <form>
+                              <div>
+                                <input type={option} for="answer"/>
+                                <label className="Answer" id="answer" style={{visibility: option !== "text" ? "visible" : "hidden"}}>{ans.title}</label>
+                              </div>
+                            </form>
+                        ) 
+                      })}
+                </ul>
+              
+            </section>           
         </div>
     )
 }
