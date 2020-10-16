@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from "react";
-import { makeStyles, unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 
 
 import NewAnswer from "./NewAnswer";
@@ -18,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  }
 }));
 
 
@@ -30,7 +36,7 @@ function Cards(){
   const [questions,setQuestion] = useState([]);
 
   const addQuestion = (ques)=>{
-    setQuestion([...questions,{ques}])
+    setQuestion([{ques}])
   }
 
 
@@ -44,15 +50,6 @@ function Cards(){
   const handleChange = (event) => {
     setOption(event.target.value);
   };
-
-  const nextQuestion = (ques,title)=> {
-    setQuestion([...questions],{ques});
-    setAnswer([...answers],{title});
-  }
-
-  
-
- 
 
 
     return(
@@ -78,7 +75,7 @@ function Cards(){
               
                   <NewAnswer addAnswer={addAnswer} option={option}/>
 
-                  <button onClick={nextQuestion}>New question</button>
+                  
 
                 </div>
             </section>
@@ -88,7 +85,7 @@ function Cards(){
                 <div>
                   {questions.map(qus=>{
                     return(
-                      <p>{qus.ques}</p>
+                      <p className="quesOutput">{qus.ques}</p>
                     )
                   })}
                 </div>

@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./cards.css";
 
-const NewAnswer = ({addAnswer},{option})=> {
+const NewAnswer = ({addAnswer})=> {
 
     const [title,setTitle] = useState('');
 
@@ -15,8 +15,8 @@ const NewAnswer = ({addAnswer},{option})=> {
     return(
         <form onSubmit={handleSubmit} >
             <label className="ans">Input Answers:</label>
-            <input type="text" value={title} required onChange={(e)=> setTitle(e.target.value)}/>
-            <input type="submit" value="add answer"/>
+            <input type="text" className="inputAns" value={title} required onChange={(e)=> setTitle(e.target.value)}/>
+            <input type="submit" className="submitAns" value="Add answer"/>
         </form>
     )
         

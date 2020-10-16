@@ -13,9 +13,9 @@ const NewQuestion = ({addQuestion})=> {
       
     return(
         <form onSubmit={handleSubmit} >
-            <label className="ans">Input Question:</label>
-            <input type="text" value={ques} required onChange={(e)=> setQues(e.target.value)}/>
-            <input type="submit" value="add question"/>
+            <label className="question">Input Question:</label>
+            <input type="text" className="inputQues" value={ques} required onChange={(e)=> setQues(e.target.value)}/>
+            <input className="submitQues" type="submit" value="Add Question"/>
         </form>
     )
         
