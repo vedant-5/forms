@@ -21,17 +21,21 @@
 }
 .livePreview {
   box-shadow: 10px 10px 45px 0px rgba(87, 87, 87, 0.2);
+  background-color: #fcc9c9;
 }
 
 .question {
-  font-size: 24px;
-  font-family: "Roboto", sans-serif;
-  margin-right: 10px;
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+
   margin-bottom: 20px;
+  border: 2px solid #fe6b8b;
+  background-color: #fff;
+  padding: 10px 5px;
 }
 
 .ans {
-  font-size: 24px;
+  font-size: 14px;
   font-family: "Nunito Sans", sans-serif;
   margin-right: 10px;
   margin-top: 50px;
@@ -44,23 +48,47 @@
 .submitAns {
   border: 2px solid #fe6b8b;
   background-color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  margin-left: 10px;
+  padding: 15px;
+  border-radius: 5px 0px 0px 5px;
+  margin-left: 0;
   margin-top: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+}
+
+.submitAns,
+.submitQues {
+  border: 2px solid #fe6b8b;
+  background-color: #fff;
+  padding: 15px 10px;
+  margin-left: 0px;
+  border-radius: 0 5px 5px 0;
+
+  border-left: 0;
+  margin-top: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
 }
 
 .submitQues:hover,
 .submitAns:hover {
   background: linear-gradient(45deg, #fe6b8b 40%, #ff8e53 70%);
+  box-shadow: 10px 10px 45px 0px rgba(87, 87, 87, 0.2);
+}
+
+.ansList {
+  margin-top: 5px;
 }
 
 .Answer {
   font-family: "Nunito Sans", sans-serif;
-  font-size: 22px;
+  font-size: 20px;
+  margin-left: 2px;
 }
 
 .quesOutput {
-  margin-left: 20px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 28pxpx;
+  margin-left: 40px;
   margin-bottom: 5px;
 }

@@ -3,7 +3,7 @@ import  Quiz from "./components/Quiz";
 
 function App() {
   return (
-    <div>
+    <div> 
       <Quiz />
     </div>
   );
