@@ -40,7 +40,7 @@ function Quiz() {
     <div className="bod">
        
           <header className="head">
-            QUIZ 
+            QUIZERR
           </header>
           <hr/>
         <Container fixed>
@@ -52,8 +52,6 @@ function Quiz() {
               </Button>
 
             </div>
-            
-            
 
             {click.map(() => {
               return( <div className="card"> <Cards /> </div> );

@@ -4,7 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
+
 import Container from '@material-ui/core/Container';
 
 
@@ -52,12 +52,15 @@ function Cards(){
     setOption(event.target.value);
   };
 
+ 
 
     return(
         <div className="quiz">
             <section className="inputSide">
+            <Container fixed>
               <div>
                   <NewQuestion addQuestion={addQuestion}/>
+
                   <div className="dropDown">
                     <FormControl className={classes.formControl}>
                       <InputLabel id="demo-simple-select-label" className="dropText">Type of Question</InputLabel>
@@ -75,10 +78,10 @@ function Cards(){
                   </div>
               
                   <NewAnswer addAnswer={addAnswer} option={option}/>
-
-                  
-
                 </div>
+
+                
+              </Container>  
             </section>
               
             
@@ -103,6 +106,8 @@ function Cards(){
                         ) 
                       })}
                 </ul>
+
+                
               </Container>
 
             </section>           
