@@ -11,7 +11,6 @@ const NewAnswer = ({addAnswer})=> {
         event.preventDefault();        
         addAnswer(title);
         setTitle('')
-        
       }
     
       
