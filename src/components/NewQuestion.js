@@ -1,17 +1,9 @@
 import React,{useState} from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+
+
 import "./cards.css";
 
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '50ch',
-      },
-    },
-  }));
 
 
 
@@ -25,7 +17,7 @@ const NewQuestion = ({addQuestion})=> {
       }
 
     
-    const classes = useStyles();
+  
       
     return(
         <form onSubmit={handleSubmit} className="quesForm">
@@ -40,6 +32,3 @@ const NewQuestion = ({addQuestion})=> {
 
 export default NewQuestion;
 
-//
-//
-//<TextField id="outlined-basic" label="Input Question" variant="outlined" />
